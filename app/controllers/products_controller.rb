@@ -9,6 +9,8 @@ class ProductsController < ApplicationController
 		@product = Product.new(params[:product])
 
 		if @product.save
+			
+			User.find(session[:id]).products << @product
 			redirect_to root_path
 		else
 			render :new
