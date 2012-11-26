@@ -18,5 +18,7 @@ class UsersController < ApplicationController
 		end
 	end
 	def show
+		@user = User.find(params[:id])
+		@products = Product.where(:user_id => params[:id])
 	end
 end
