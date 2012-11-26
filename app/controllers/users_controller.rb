@@ -8,6 +8,10 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(params[:user])
 
+		name = params[:user][:name]
+    	session[:name] = name
+    	session[:id] = @user[:id]
+
 		if @user.save
 			redirect_to root_path
 		else
