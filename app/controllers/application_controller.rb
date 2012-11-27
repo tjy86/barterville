@@ -15,6 +15,5 @@ class ApplicationController < ActionController::Base
   #   if  Request.where(:owner_id => @authenticated_user, :done => false).present?
   #     redirect_to alert_products_path
   #   end
-
   # end
 end

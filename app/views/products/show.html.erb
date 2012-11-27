@@ -6,9 +6,18 @@
 
 <!-- BARTER BUTTON -->
 <%= form_tag barter_product_path, :id => 'barterbutton',:method => :get, :remote => true do %>
-
   <%= submit_tag 'Barter', :class => 'btn btn-success' %>
 <% end %>
+<!-- Ajax dropdown menu for bartering -->
+<%= @authenticated_user.name %>
+
+
+<%= form_tag do %>
+    <%= select_tag :exchange_id, options_for_select(@authenticated_user.products, @authenticated_user.products.name, "1") %>
+    <%= submit_tag 'go' %>
+<% end %>
+
+<br><br><br><br>
 
 <%= link_to "Edit product", edit_product_path(@product) %>
 <br>
