@@ -1,0 +1,4 @@
+<%= form_tag '/search', :method => :get, :remote => true do %>
+  <%= text_field_tag 'name' %>
+  <%= submit_tag 'Search Products', :class => 'btn btn-success' %>
+<% end %>
