@@ -3,6 +3,12 @@
 	<%= t.text_field :name %>
 	<%= t.label :description %>
 	<%= t.text_area :description %>
-	<br>
+
+    <label>product photo</label>
+    <%= image_tag(@product.photo.thumb) if @product.photo? %>
+    <%= t.file_field :photo %>
+    <%= t.hidden_field :photo_cache %>
+    <%= t.text_field :remote_photo_url %>
+
 	<%= t.submit %>
 <% end %>

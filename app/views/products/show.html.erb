@@ -1,7 +1,7 @@
 <h1><%= @product.name %></h1>
 <h2>Owned by <%= link_to @product.user.name, user_path(@product.user) %></h2>
 <h3><%= @product.description %></h3>
-
+<%= image_tag(@product.photo.thumb) if @product.photo? %>
 
 <%= link_to "Edit product", edit_product_path(@product) %>
 <br>
