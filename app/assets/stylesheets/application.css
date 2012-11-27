@@ -10,5 +10,8 @@
  *
  *= require 'css/bootstrap.css'
  *= require_self
+ *= require 'main.css'
  *= require_tree .
  */
+
+
