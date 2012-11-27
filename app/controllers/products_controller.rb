@@ -19,4 +19,12 @@ class ProductsController < ApplicationController
 	def show
 		@product = Product.find(params[:id])
 	end
+	def edit
+		@product = Product.find(params[:id])
+	end
+	def destroy
+		product = Product.find(params[:id])
+    	product.delete
+    	redirect_to user_path(User.find(session[:id]))
+	end
 end
