@@ -37,6 +37,6 @@ class ProductsController < ApplicationController
 	end
 	def search
 		name = params[:name]
-		@products = Product.where(:name => name)
+		# @products = Product.where('products.keywords ~= ?', name)
 	end
 end
