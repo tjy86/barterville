@@ -10,7 +10,7 @@ function pressed_key(key) {
      if(key.keyCode == 6) {
           $('#searchdiv').fadeIn();
           $('#searchdiv input #name').val('');
-          $('#searchdiv input #name').focus(); 
+          $('#query').focus(); 
      }
      // ctrl-h
      if(key.keyCode == 8) {

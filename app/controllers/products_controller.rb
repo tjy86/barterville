@@ -40,9 +40,9 @@ class ProductsController < ApplicationController
 	def search
 		query = params[:query]
 		if query.present?
-			@products = Product.text_search(query)
+			@products = Product.text_search(query).page(params[:page])
 		else
-			@products = Product.all
+			@products = Product.order(query).page(params[:page])
 		end
 	end
 end
