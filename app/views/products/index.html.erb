@@ -5,5 +5,5 @@
 	<li><%= link_to product.name, product_path(product) %></li>
 <% end %>
 </ul>
-
+<%= paginate @products %>
 <%= link_to "Create New Product", new_product_path %>
