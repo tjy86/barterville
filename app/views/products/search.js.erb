@@ -1,0 +1,5 @@
+$('#product_content').empty()
+
+<% @products.each do |p| %>
+   $('#product_content').prepend('<li><%= link_to p.name, p %></li>')
+ <% end %>

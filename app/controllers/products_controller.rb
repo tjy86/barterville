@@ -35,4 +35,8 @@ class ProductsController < ApplicationController
     	product.delete
     	redirect_to user_path(User.find(session[:id]))
 	end
+	def search
+		name = params[:name]
+		@products = Product.where(:name => name)
+	end
 end
