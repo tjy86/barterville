@@ -2,8 +2,6 @@ Hello <%= @authenticated_user.name %><%= ", you have no pending requests." if @r
 
 <ul>
 <% @requests.each do |r| %>
-  <li><%= link_to r.product.name, r.product %> by <%= link_to User.find(r.buyer_id).name, User.find(r.buyer_id) %></li>
+  <li><%= r.exchange.name %> by <%= link_to User.find(r.buyer_id).name, User.find(r.buyer_id) %> for <%= link_to r.product.name, r.product %></li>
 <% end %>
-
-
 </ul>
