@@ -14,5 +14,10 @@
 class Product < ActiveRecord::Base
 	belongs_to :user
 	has_many :requests
-  mount_uploader :photo, PhotoUploader
+  	mount_uploader :photo, PhotoUploader
+
+    def self.text_search(query)
+       self.where("name @@ :q or description @@ :q", :q => query)
+  	end
+
 end

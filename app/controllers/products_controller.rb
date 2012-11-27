@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+
+
 	def index
 		@products = Product.order(:name).page(params[:page])
 	end
@@ -36,7 +38,11 @@ class ProductsController < ApplicationController
     	redirect_to user_path(User.find(session[:id]))
 	end
 	def search
-		name = params[:name]
-		# @products = Product.where('products.keywords ~= ?', name)
+		query = params[:query]
+		if query.present?
+			@products = Product.text_search(query)
+		else
+			@products = Product.all
+		end
 	end
 end

@@ -3,13 +3,17 @@ Barterville::Application.routes.draw do
   root :to => 'home#index'
 
   resources :users
-  resources :products
+  resources :products do
+    collection do
+      get 'search'
+    end
+  end
 
 
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   get '/logout' => 'session#destroy'
-  get '/search' => 'products#search'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

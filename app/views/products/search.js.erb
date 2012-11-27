@@ -1,5 +1,5 @@
-$('#product_content').empty()
+$(this).css('background','black');
 
-<% @products.each do |p| %>
-   $('#product_content').prepend('<li><%= link_to p.name, p %></li>')
- <% end %>
+$('#product_content').empty();
+
+$('#product_content').append("<%=j render :partial => 'display', :locals => {:products => @products} %>");
