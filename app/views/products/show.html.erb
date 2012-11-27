@@ -3,6 +3,13 @@
 <h3><%= @product.description %></h3>
 <%= image_tag(@product.photo.thumb) if @product.photo? %>
 
+
+<!-- BARTER BUTTON -->
+<%= form_tag barter_product_path, :id => 'barterbutton',:method => :get, :remote => true do %>
+
+  <%= submit_tag 'Barter', :class => 'btn btn-success' %>
+<% end %>
+
 <%= link_to "Edit product", edit_product_path(@product) %>
 <br>
 

@@ -45,4 +45,20 @@ class ProductsController < ApplicationController
 			@products = Product.order(query).page(params[:page])
 		end
 	end
+	def barter
+
+		product_id = params[:id]
+		product = Product.find(product_id)
+		owner = product.user
+		buyer = @authenticated_user
+		request = Request.new(:buyer_id => buyer.id, :owner_id => owner.id, :product_id => product_id, :done => false)
+		if request.save
+
+		else
+			render :show
+		end
+	end
+	def alert
+
+	end
 end
