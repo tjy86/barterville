@@ -21,4 +21,21 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@products = Product.where(:user_id => params[:id])
 	end
+
+	def update
+		@user = User.find(params[:id])
+		if @user.update_attributes(params[:user])
+			redirect_to @user
+		else
+			render :edit
+		end
+	end
+	def edit
+		@user = User.find(params[:id])
+	end
+	def destroy
+		user = User.find(params[:id])
+    	user.delete
+    	redirect_to user_path(User.find(session[:id]))
+	end
 end
