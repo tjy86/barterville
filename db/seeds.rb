@@ -8,8 +8,10 @@ names.each do |name|
 	User.create(:name => name, :password => "1", :password_confirmation => "1", :remote_photo_url => "http://lorempixel.com/150/150/people")
 end
 
-100.times do
+p_images = ["http://lorempixel.com/150/150/transport/","http://lorempixel.com/150/150/animals/","http://lorempixel.com/150/150/technics/"]
+
+10.times do
 	p = products.sample
 	u = User.all.sample
-	u.products << Product.create(:name => p, :description => "this is a nice #{p}")
+	u.products << Product.create(:name => p, :description => "this is a nice #{p}", :remote_photo_url => p_images.sample)
 end
