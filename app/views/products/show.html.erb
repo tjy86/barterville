@@ -7,9 +7,11 @@
 
 
 <!-- BARTER BUTTON -->
-<%= form_tag barter_product_path, :id => 'barterbutton',:method => :get, :remote => true do %>
-  <%= select_tag :exchange_id, options_from_collection_for_select(@authenticated_user.products, "id", "name") %>
-  <%= submit_tag 'Barter', :class => 'btn btn-success' %>
+<% if !(@authenticated_user == @product.user) %>
+  <%= form_tag barter_product_path, :id => 'barterbutton',:method => :get, :remote => true do %>
+    <%= select_tag :exchange_id, options_from_collection_for_select(@authenticated_user.products, "id", "name") %>
+    <%= submit_tag 'Barter', :class => 'btn btn-success' %>
+  <% end %>
 <% end %>
 
 <%= link_to "Edit product", edit_product_path(@product) if @authenticated_user.id == @product.user_id %>
