@@ -1,7 +1,9 @@
-<h1><%= @product.name %></h1>
-<h2>Owned by <%= link_to @product.user.name, user_path(@product.user) %></h2>
-<h3><%= @product.description %></h3>
-<%= image_tag(@product.photo.thumb) if @product.photo? %>
+<div class='user_products'>
+  <li><%= image_tag(@product.photo.thumb) if @product.photo? %>
+  <%= @product.name %><br>
+  Owner: <%= link_to @product.user.name, user_path(@product.user) %><br>
+  <%= @product.description %></li>
+</div>
 
 
 <!-- BARTER BUTTON -->
@@ -11,9 +13,7 @@
 <% end %>
 <!-- Ajax dropdown menu for bartering -->
 
-<br><br><br><br>
-
-<%= link_to "Edit product", edit_product_path(@product) %>
+<%= link_to "Edit product", edit_product_path(@product) if @authenticated_user.id == @product.user_id %>
 <br>
 
-<%= link_to "Delete product", product_path(@product), :method => :delete, :confirm => "Are you sure?" %>
+<%= link_to "Delete product", product_path(@product), :method => :delete, :confirm => "Are you sure?" if @authenticated_user.id == @product.user_id %>
