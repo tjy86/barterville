@@ -14,5 +14,5 @@
 
 class Request < ActiveRecord::Base
 	belongs_to :product
-  # belongs_to :exchange, :class_name => 'Product', :foreign_key => :id
+  belongs_to :exchange, :class_name => 'Product', :foreign_key => :exchange_id
 end

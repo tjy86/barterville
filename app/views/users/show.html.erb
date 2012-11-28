@@ -1,12 +1,14 @@
-<h1><%= @user.name %>'s page</h1>
-<h2><%= @user.email %></h2>
-<%= image_tag(@user.photo.thumb) if @user.photo? %>
-<h3> <%= link_to "edit", edit_user_path(@user) %> </h3>
+<div id="user_show">
+  <%= image_tag(@user.photo.thumb) if @user.photo? %>
 
-<h2>Items</h2>
-<ul>
+<%= @user.name %>
+<%= @user.email %>
+<%= link_to "edit", edit_user_path(@user) if @authenticated_user == @user %>
+</div>
+
+<ul class='user_products'>
 <% @products.each do |product| %>
-	<li><%= link_to product.name, product_path(product) %></li>
+  <li><%= link_to image_tag(product.photo), product_path(product) %>
+	<%= link_to product.name, product_path(product) %></li>
 <% end %>
 </ul>
-

@@ -46,12 +46,12 @@ class ProductsController < ApplicationController
 		end
 	end
 	def barter
-
+		exchange_id = params[:exchange_id]
 		product_id = params[:id]
 		product = Product.find(product_id)
 		owner = product.user
 		buyer = @authenticated_user
-		request = Request.new(:buyer_id => buyer.id, :owner_id => owner.id, :product_id => product_id, :done => false)
+		request = Request.new(:buyer_id => buyer.id, :owner_id => owner.id, :product_id => product_id, :done => false, :exchange_id => exchange_id)
 		if request.save
 
 		else

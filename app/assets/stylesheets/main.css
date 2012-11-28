@@ -1,3 +1,7 @@
+ul{
+  margin: 0;
+}
+
 #user_index li{
   margin: 10px;
   padding: 5px;
@@ -24,4 +28,41 @@
 
 input {
   display: block;
+}
+
+#user_show{
+  margin: 10px;
+  padding: 5px;
+  border: 1px #000 solid;
+  height: 210px;
+  width: 156px;
+  float: left;
+  list-style-type: none;
+}
+
+#user_show img{
+  border: 3px #000 solid;
+}
+
+.user_products li{
+  margin: 10px;
+  padding: 5px;
+  border: 1px #000 solid;
+  height: 210px;
+  width: 156px;
+  float: left;
+  list-style-type: none;
+}
+
+.user_products img{
+  opacity: 0.5;
+  border: 3px #000 solid;
+}
+
+.user_products img:hover{
+  opacity: 1;
+}
+
+.clear{
+  clear: both;
 }
