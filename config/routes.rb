@@ -20,6 +20,9 @@ Barterville::Application.routes.draw do
   get '/requests' => 'requests#index'
   post '/action' => 'requests#action'
 
+  get '/accept' => 'requests#accept'
+  get '/reject' => 'requests#reject'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

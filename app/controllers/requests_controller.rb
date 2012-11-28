@@ -22,10 +22,16 @@ class RequestsController < ApplicationController
       @action = 'accept'
       p.save
       p2.save
+      #cleaning up, delete all items pertaining to the trades in other requests
       Request.where(:product_id => r.product_id).delete_all
+      Request.where(:product_id => r.exchange_id).delete_all
+      Request.where(:exchange_id => r.product_id).delete_all
+      Request.where(:exchange_id => r.exchange_id).delete_all
     else
       @action = 'reject'
     end
     r.save
+
+
   end
 end
