@@ -2,7 +2,7 @@
 	<%= t.label :name %>
 	<%= t.text_field :name %>
 	<%= t.label :description %>
-	<%= t.text_area :description %>
+	<%= t.text_area :description, :rows => 10 %>
 
     <label>product photo</label>
     <%= image_tag(@product.photo.thumb) if @product.photo? %>

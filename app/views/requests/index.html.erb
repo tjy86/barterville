@@ -1,9 +1,7 @@
-<%if @requests %>
-  <ul>
-  <% @requests.each do |r| %>
-    <li><%= r.exchange.name %> by <%= link_to User.find(r.buyer_id).name, User.find(r.buyer_id) %> for <%= link_to r.product.name, r.product %></li>
-  <% end %>
-  </ul>
-<% else %>
-Hello <%= @authenticated_user.name %><%= ", you have no pending requests." if @requests.nil? %>
+Hello <%= @authenticated_user.name %><%= ", you have no pending requests." if @requests.empty? %>
+<br>
+<ul>
+<% @requests.each do |r| %>
+  <li><%= r.exchange.name %> by <%= link_to User.find(r.buyer_id).name, User.find(r.buyer_id) %> for <%= link_to r.product.name, r.product %></li>
 <% end %>
+</ul>
