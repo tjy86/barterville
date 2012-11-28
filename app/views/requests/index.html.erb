@@ -1,27 +1,26 @@
-<h1>My profile</h1>
-<h3><%= @authenticated_user.name %></h3>
-
+<h1>My Profile - <%= @authenticated_user.name %></h1>
 <hr>
 <h3>Pending Requests</h3>
-  <h3><%= "You have no pending requests." if @requests.empty? %></h3>
-
-
-<br>
+<h3><%= "You have no pending requests." if @requests.empty? %></h3>
 <ul>
 <% @requests.each do |r| %>
-<div id=<%= "div#{r.id}" %>>
-  <li><%= link_to r.exchange.name, r.exchange %> by <%= link_to User.find(r.buyer_id).name, User.find(r.buyer_id) %> for <%= link_to r.product.name, r.product %></li>
-  	<%= form_tag '/action', :remote => true do %>
-    <%= hidden_field_tag :request, r.id %>
-    <%= submit_tag 'accept' %>
-    <%= submit_tag 'reject' %>
-   </div>
-  <% end %>
 
+<div class=<%= "div#{r.product_id}"%> id=<%= "div#{r.id}"%>>
+<li class='requests'>  <%= link_to image_tag(r.exchange.photo), r.exchange %>
+
+    <i class="icon-plus"></i><%= link_to r.exchange.name, r.exchange %> <br>
+    <i class="icon-user"></i><%= link_to User.find(r.buyer_id).name, User.find(r.buyer_id) %> <br>
+    <i class="icon-minus"></i><%= link_to r.product.name, r.product %>
+  <%= form_tag '/action', :remote => true do %>
+    <%= hidden_field_tag :request, r.id %>
+    <%= submit_tag 'accept', :class => 'btn-success' %>
+    <%= submit_tag 'reject', :class => 'btn-danger' %>
+    </li>
+  <% end %>
+     </div>
 
 <% end %>
 </ul>
-
+<div class='clear'></div>
 <h3>My Products</h3>
 <%= render :partial => 'products/display', :locals => {:products => Product.where(:user_id => @authenticated_user.id).page(params[:page])} %>
-

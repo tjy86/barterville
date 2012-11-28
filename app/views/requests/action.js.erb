@@ -1,1 +1,5 @@
-$('#div<%=@request_id %>').empty()
+<% @action == "false" do %>
+	$('.div<%=@product_id %>').empty()
+<% else %>
+	$('.div<%=@request_id %>').empty()
+<% end %>
