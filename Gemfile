@@ -15,7 +15,7 @@ gem 'kaminari'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'fog'
-
+gem 'aws-ses'
 
 # Gems used only for assets and not required
 # in production environments by default.

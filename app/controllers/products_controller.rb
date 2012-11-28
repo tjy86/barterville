@@ -53,7 +53,7 @@ class ProductsController < ApplicationController
 		buyer = @authenticated_user
 		request = Request.new(:buyer_id => buyer.id, :owner_id => owner.id, :product_id => product_id, :done => false, :exchange_id => exchange_id)
 		if request.save
-
+			Notifications.trade(buyer.name).deliver
 		else
 			render :show
 		end
