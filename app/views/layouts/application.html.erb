@@ -15,7 +15,8 @@
 		    <a class="brand" href="#">Barterville</a>
 		    <ul class="nav">
 		      <li class="active"><%= link_to "Home", root_path %></li>
-		      <li><%= link_to "Requests Pending", requests_path  if !@authenticated_user.nil? %></li>
+
+		      <li><%= link_to @authenticated_user.name, requests_path  if !@authenticated_user.nil? %></li>
 		      <li><%= link_to "Users", users_path if !@authenticated_user.nil? %></li>
 		      <li><%= link_to "Create New User", new_user_path if @authenticated_user.nil? %></li>
 		      <li><%= link_to "Products", products_path if !@authenticated_user.nil? %></li>

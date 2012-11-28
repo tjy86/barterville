@@ -18,6 +18,7 @@ Barterville::Application.routes.draw do
   post '/login' => 'session#create'
   get '/logout' => 'session#destroy'
   get '/requests' => 'requests#index'
+  post '/action' => 'requests#action'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
