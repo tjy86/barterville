@@ -1,5 +1,5 @@
-<% @action == "accept" do %>
-	$('.div<%=@product_id %>').empty()
-<% else %>
+<% if @action == "reject" %>
 	$('#div<%=@request_id %>').empty()
+<% elsif @action == "accept" %>
+	$('.div<%=@product_id %>').empty()
 <% end %>
