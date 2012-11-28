@@ -6,9 +6,9 @@
 <% @requests.each do |r| %>
 <li class='requests'>  <%= link_to image_tag(r.exchange.photo), r.exchange %>
 
-    trade: <%= link_to r.exchange.name, r.exchange %> <br>
-    by: <%= link_to User.find(r.buyer_id).name, User.find(r.buyer_id) %> <br>
-    for: <%= link_to r.product.name, r.product %>
+    <i class="icon-plus"></i><%= link_to r.exchange.name, r.exchange %> <br>
+    <i class="icon-user"></i><%= link_to User.find(r.buyer_id).name, User.find(r.buyer_id) %> <br>
+    <i class="icon-minus"></i><%= link_to r.product.name, r.product %>
   <%= form_tag '/action', :remote => true do %>
     <%= hidden_field_tag :request, r.id %>
     <%= submit_tag 'accept', :class => 'btn-success' %>
