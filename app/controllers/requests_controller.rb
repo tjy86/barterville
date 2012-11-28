@@ -7,7 +7,6 @@ class RequestsController < ApplicationController
 
     action = params[:commit]
     request_id = params[:request]
-    user = @authenticated_user
     r = Request.find(request_id)
     r.done = true
 

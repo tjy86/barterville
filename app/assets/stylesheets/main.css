@@ -66,3 +66,22 @@ input {
 .clear{
   clear: both;
 }
+
+
+/*Requests*/
+.requests{
+  margin: 10px;
+  padding: 5px;
+  border: 1px #000 solid;
+  height: 250px;
+  width: 156px;
+  float: left;
+  list-style-type: none;
+}
+.requests img{
+  border: 3px #000 solid;
+}
+.requests input[type="submit"]{
+  display: inline;
+  margin: 3px 10px;
+}
