@@ -6,9 +6,9 @@ class RequestsController < ApplicationController
   def action
 
     action = params[:commit]
-    request_id = params[:request]
+    @request_id = params[:request]
     user = @authenticated_user
-    r = Request.find(request_id)
+    r = Request.find(@request_id)
     r.done = true
 
     if action == 'accept'

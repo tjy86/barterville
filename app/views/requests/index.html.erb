@@ -9,12 +9,15 @@
 <br>
 <ul>
 <% @requests.each do |r| %>
+<div id=<%= "div#{r.id}" %>>
   <li><%= link_to r.exchange.name, r.exchange %> by <%= link_to User.find(r.buyer_id).name, User.find(r.buyer_id) %> for <%= link_to r.product.name, r.product %></li>
-  <%= form_tag '/action', :remote => true do %>
+  	<%= form_tag '/action', :remote => true do %>
     <%= hidden_field_tag :request, r.id %>
     <%= submit_tag 'accept' %>
     <%= submit_tag 'reject' %>
+   </div>
   <% end %>
+
 
 <% end %>
 </ul>
